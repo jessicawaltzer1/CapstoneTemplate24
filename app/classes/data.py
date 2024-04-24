@@ -22,6 +22,9 @@ from bson.objectid import ObjectId
 
 class User(UserMixin, Document):
     createdate = DateTimeField(defaultdefault=dt.datetime.utcnow)
+    role = StringField()
+    age = StringField()
+    gender = StringField()
     gid = StringField(sparse=True, unique=True)
     gname = StringField()
     gprofile_pic = StringField()
@@ -54,6 +57,18 @@ class Sleep(Document):
         'ordering': ['sleep_date']
     }
     
+class Reflection(Document):
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    memory = StringField()
+    happiness = StringField()
+    symbol = StringField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+
 class Blog(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     subject = StringField()

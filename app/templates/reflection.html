@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if reflection %}
+    {{moment(reflection.create_date).calendar()}} by {{reflection.author.fname}} {{reflection.author.lname}} 
+    {% if reflection.modifydate %}
+        modified {{moment(reflection.modifydate).calendar()}}
+    {% endif %}
+    <br>
+    {% if reflection.author == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="Delete Reflection" href="/reflection/delete/{{reflection.id}}">
+            <img width="40" class="bottom-image" src="/static/delete.png">
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Edit Reflection" href="/reflection/edit/{{reflection.id}}">
+            <img width="40" class="bottom-image" src="/static/edit.png">
+        </a>
+    {% endif %}
+
+    <h1 class="display-5">{{reflection.memory}}</h1>
+    <p class="fs-3 text-break">
+        {% if reflection.author.image %}
+            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(reflection.author.image.read())}}">
+        {% endif %}
+            {{reflection.happiness}} <br>
+            {{reflection.symbol}}
+
+
+{% else %}
+ no reflections yet
+{% endif %}
+
+{% endblock %}

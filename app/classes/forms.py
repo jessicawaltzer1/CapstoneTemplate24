@@ -13,7 +13,11 @@ class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
-    submit = SubmitField('Post')
+    role = SelectField('Role',choices=[("Teacher","Teacher"),("Student","Student")])
+    age = StringField('Age', validators=[DataRequired()])
+    gender = SelectField('Gender',choices=[("Male","Male"),("Female","Female")])
+
+    submit = SubmitField('Submit!')
 
 class ConsentForm(FlaskForm):
     adult_fname = StringField('First Name',validators=[DataRequired()])
@@ -32,10 +36,16 @@ class SleepForm(FlaskForm):
     minstosleep = IntegerField("How many minutes did it take you to fall asleep?", validators=[NumberRange(min=0,max=180, message="Enter a number between 0 and 180.")])
     submit = SubmitField("Submit")
 
+class ReflectionForm(FlaskForm):
+    memory = StringField('memory', validators=[DataRequired()])
+    happiness = StringField('happiness', validators=[DataRequired()])
+    symbol = StringField('symbol', validators=[DataRequired()])
+    submit = SubmitField('Reflection')
+
 class BlogForm(FlaskForm):
-    subject = StringField('Subject', validators=[DataRequired()])
-    content = TextAreaField('Blog', validators=[DataRequired()])
-    tag = StringField('Tag', validators=[DataRequired()])
+    subject = StringField('Subject')
+    content = TextAreaField('Blog')
+    tag = StringField('Tag')
     submit = SubmitField('Blog')
 
 class CommentForm(FlaskForm):
