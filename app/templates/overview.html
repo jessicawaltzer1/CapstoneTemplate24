@@ -3,28 +3,40 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="row">
-    <div class="col-10 mx-10 my-10 border border-10">
-        <h1 class="display-5 text-center">Background</h1>
-        <p>I decided to research the meaning behind dreams and what they can tell us about everyday life. Through research, I have discovered that symbols in dreams are representative of day to day life. Understanding what our dreams mean can help us better understand our lives and what potential stressors could be.
-            .</p>
-            <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
-
-            <img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
-
-
-    <div class="col-10 me-10 mb-10 border border-10">
-        <p></p>
-        <h1 class="display-6 text-center">The Effects of your Dreams</h1>
-        <p>Sleep deprivation is the leading cause of the decline in student health because the biological sleep pattern in adolescents causes students to sleep later and wake up later. Sleep deprivation can lead to metabolic and cognitive disturbances in brain areas involved in learning, memory, and emotions in the hippocampus, amygdala, and prefrontal cortex. Children and adolescents who do not get enough sleep have a higher risk for many health problems, including obesity, type 2 diabetes, poor mental health, and injuries. They are also more likely to have attention and behavior problems, which can contribute to poor academic performance in school
-        </p>
-
-            <div class="container text-center border border-5 ">
-                <h1 class="display-4 container text-center">Info About Me</h1>
-        <p>My name is Jessica Waltzer. I am a senior in the Computer Science Academy and I row. As a student athlete and overall sleep deprieved teenager who dreams frequently, I wanted to create a dream logging app to help people understand their dreams. </p>
         <img src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/sleeping-face.png"  width = "200" hieght= "200" ">
     </div>
-
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Background Info
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">I decided to research the meaning behind dreams and what they can tell us about everyday life. Through research, I have discovered that symbols in dreams are representative of day to day life. Understanding what our dreams mean can help us better understand our lives and what potential stressors could be.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                The Effects of your Dreams
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"> Have you ever woken up from a dream crying? Or super stressed from a dream you had? My project helps people remember their dreams with a dream tracker and then evaluate what common symbols in their dreams could mean..</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                Info About Me
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"> My name is Jessica Waltzer. I am a senior in the Computer Science Academy and I row. As a student athlete and overall sleep deprieved teenager who dreams frequently, I wanted to create a dream logging app to help people understand their dreams.</div>
+          </div>
+        </div>
+      </div>
         
 </div>
 

@@ -72,15 +72,26 @@ def reflections():
     reflections = Reflection.objects()
     return render_template("reflections.html",reflections=reflections)
 
-@app.route('/reflection/delete/<reflectionId>')
+@app.route('/reflection/delete/<reflectionID>')
 @login_required
 
-def reflectionDelete(reflectionId):
-    delReflection = Reflection.objects.get(id=reflectionId)
-    sleepDate = delReflection.reflection_date
-    delReflection.delete()
-    flash(f"reflection with date {reflectionDate} has been deleted.")
-    return redirect(url_for('reflections'))
+def reflectionDelete(reflectionID):
+
+    deleteReflection = Reflection.objects.get(id=reflectionID)
+   
+    if current_user == deleteReflection.author:
+       
+        deleteReflection.delete()
+        # send a message to the user that the blog was deleted.
+        flash('The Reflection was deleted.')
+    else:
+        # if the user is not the author tell them they were denied.
+        flash("You can't delete a blog you don't own.")
+    # Retrieve all of the remaining blogs so that they can be listed.
+    reflections = Reflection.objects()  
+    # Send the user to the list of remaining blogs.
+    return render_template('reflections.html',reflections=reflections)
+
 
 @app.route('/reflection/edit/<reflectionID>', methods=['GET', 'POST'])
 @login_required

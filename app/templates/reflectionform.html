@@ -18,7 +18,7 @@
                 {% endfor %}
             </p>
             <p>
-                Add your comments here <br>
+                {{ form.happiness.label }} <br>
                 {{ form.happiness(cols=64, rows=10) }}
                 <!--List the errors for this field-->
                 {% for error in form.happiness.errors %}

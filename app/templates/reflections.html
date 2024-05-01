@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" height= "200" alt="...">
-
-<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" height= "200" alt="...">    </div>
 <div class="row">
     <div class="col-4">
         <h1 class="display-1">Any Feedback for us?</h1>
@@ -35,7 +32,7 @@
                 {% if loop.index == 1 %}
                     <h3 class="display-5">Subject</h3>
                 {% endif %}
-                {{reflection.subject}}
+                {{reflection.symbol}}
             </div>
         </div>
     {% endfor %}
